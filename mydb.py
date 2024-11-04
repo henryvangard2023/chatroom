@@ -29,14 +29,12 @@ def SelectAll():
         print (row)
 
 
-################################
 # Create a user
-################################
 
 def CreateUser(user):
     
-    sql = 'INSERT INTO users VALUES (%s, %s, %s, %s, %s, %s)'
-    val = (user.ID, user.FirstName, user.LastName, user.Username, user.Password, user.Email)
+    sql = 'INSERT INTO users VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'
+    val = (user.ID, user.FirstName, user.LastName, user.Username, user.Password, user.Email, 0,0,0)  # 0 for Disabled, Suspended, and Admin
     
     # testing
     # print(val)
@@ -48,27 +46,25 @@ def CreateUser(user):
     db.commit()
     
     
-################################    
 # Delete a user
-################################
 
 def DeleteUser(user):
     ...
 
 
-################################
 # Modify a user
-################################
 
-def UpdateUser(user):
+def ModifyUser(user):
     ...
 
 
-################################ 
-# How about disabling a user???
-################################
+# How about disabling a user from chatting???
 
 def DisableUser(user):
+    '''
+    Disable a user by the admin, must add a disable field to the database.
+    '''
+    
     ...
 
 
@@ -86,7 +82,7 @@ if __name__ == '__main__':
     os.system('cls')
     SelectAll()
     
-    # Make sure to you double quotes if there are single quotes inside
+    # Make sure to you double quotes if there are single quotes inside like in a SQL statement
     
     '''
     cur.execute("INSERT INTO users \
@@ -100,16 +96,6 @@ if __name__ == '__main__':
    
    '''
    
-    # testing, working for both id and username 
-    
-    # sql = "select username from users where username = %s"
-    # val = ('mm2',)         # use the comma to declare val as a tuple
-    # cur.execute(sql, val)
-    # idf = cur.fetchall()    # returns a list of users represented as tuples
-    # flen = len(idf)
-    # print(idf, ' ',flen)
-    
-    
     # Make sure to commit to the database not the cursor
     db.commit()
     
