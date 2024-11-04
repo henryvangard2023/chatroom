@@ -215,10 +215,14 @@ def Login():
                     
                     # go back to the Welcome menu for now
                     Welcome()
+                else:  # wrong password
+                    print('  Wrong password!  Press try again ...')
             else:                       
                 print('Good-bye!  Too many password attempts.')
                 _ = input('Press Enter to continue ...')
                 Welcome()     
+        else:  # username is not found
+            print('  Wrong username!  Please try again ...')
     else:
         print('Good-bye!  Too many username attempts.')
         _ = input('Press Enter to continue ...')
