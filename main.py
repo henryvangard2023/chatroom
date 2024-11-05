@@ -290,43 +290,57 @@ def AdminConsole():
         choice = input('\nEnter your choice --> ')    
 
         if choice in ['1', 'disable', 'enable:']:
-            ...
+            DisableEnable()
         elif choice in ['2', 'suspend']:
-            ...
+            Suspend()
         elif choice in ['3', 'modify']:
-            ...
+            ModifyDetails()
         elif choice in ['4', 'delete']:
-            ...
+            Delete()
         elif choice in ['5', 'add', 'admin']:
-            ...
+            AddAdmin()
         elif choice in ['6', 'exit']:  # exit to the Welcome screen
             Welcome()
         else:
-            _ = input('Wrong choice!  Please enter to try again ...')
+            _ = input('Wrong choice!  Please Enter to try again ...')
             
 
-def DisableEnableUser():
+# Disable or enable a user
+
+def DisableEnable():
     print('Disable\\Enable a User\n')
 
-def SuspendUser():
+
+# Suspend a user
+
+def Suspend():
     print('Suspend a User\n')
     
-def ModifyUserDetails():
+    
+# Modify user details    
+    
+def ModifyDetails():
     print('Modify a User Details\n')
 
-def DeleteUser():
+
+# Delete a user
+
+def Delete():
     print('Delete a User\n')
+    
+  
+# Add an admin by changing a user to admin (not creating a new user as admin which by default is NOT)    
     
 def AddAdmin():
     print('Add an Admin\n')
 
     username = input('Username: ')
-    user, _ = FindUsername(username)
+    user, _ = FindUsername(username)  # ignore the truth value returned
     
-
-
+    
+################################
 # Main 
-
+################################
 
 if __name__ == '__main__':
     Welcome()
